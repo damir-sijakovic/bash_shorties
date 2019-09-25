@@ -1,3 +1,4 @@
+#!/bin/sh
 
 declare -A arr
 
