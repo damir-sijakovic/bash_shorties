@@ -1,2 +1,3 @@
 # bash_shorties
-Bash scripts
+
+Bash scripts that I find useful.
