@@ -9,7 +9,7 @@ $ECHO $UTIL_INFO
 
 else 
 
-convert -comment "©2019 Damir Šijaković "$1" "$1"
+convert -comment "©2019 Damir Šijaković" "$1" "$1"
 identify -verbose "$1" 
 
 fi
