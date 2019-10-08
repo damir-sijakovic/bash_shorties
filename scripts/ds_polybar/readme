@@ -1,0 +1,9 @@
+Requires:
+Font: Open Sans, Font Awesome
+Tools: wmctrl, rofi, polybar
+
+Copy to:
+/home/dmr/.config/polybar/
+
+run:
+/home/dmr/.config/polybar/launch.sh

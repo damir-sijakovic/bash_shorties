@@ -1,0 +1,182 @@
+;damir šijaković/2019
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[colors]
+#background = ${xrdb:color0:#222}
+background = ${xrdb:background:#ffffffff}
+background-alt = ${xrdb:color0:#000}
+;foreground = ${xrdb:color7:#222}
+foreground = ${xrdb:foreground:#000000}
+foreground-alt = ${xrdb:colorBD:#444}
+primary = ${xrdb:color4:#ffb52a}
+secondary = ${xrdb:color3:#e60053}
+alert = ${xrdb:color1:#bd2c40}
+
+[bar/top]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 24
+;offset-x = 1%
+;offset-y = 1%
+radius = 0
+fixed-center = false
+bottom = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 8
+padding-right = 8
+
+module-margin-left = 4
+module-margin-right = 4
+
+font-0 = Open Sans:style=Light:size=10;2
+font-1 = Font Awesome5 Free:style=Solid:size=10;2
+
+modules-left = xwindow 
+modules-center = memory filesystem
+modules-right = wlan date my-text-label
+
+;modules-left = i3
+;modules-center = date openweathermap-fullfeatured
+;modules-right = filesystem temperature cpu memory battery-combined-shell
+
+; tray-position = right
+tray-padding = 1
+tray-transparent = true
+tray-background = #aa222222
+
+;wm-restack = bspwm
+; wm-restack = i3
+
+; override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+click-left = ./rofi_windows.sh
+click-middle = ./rofi_run.sh
+click-right = ./rofi_apps.sh
+scroll-up = xdotool set_desktop --relative 1
+scroll-down = xdotool set_desktop --relative 1
+double-click-left = 
+double-click-middle =
+double-click-right = 
+
+cursor-click = pointer
+;cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label =  Artix Linux
+;click-left = exec /storage/sys/scripts/rofi_run.sh
+;label = %title:0:50:...%
+
+[module/my-text-label]
+type = custom/text
+content =  
+click-left = ./next_ws.sh
+
+
+;[module/xwindow]
+;type = internal/xwindow
+;label = %title:0:50:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+format = <label-layout> <label-indicator>
+
+format-prefix =
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.secondary}
+
+label-layout = %name%
+label-layout-underline = ${colors.secondary}
+
+label-indicator-padding = 1
+label-indicator-margin = 0
+label-indicator-foreground = ${colors.background}
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /home
+mount-1 = /
+label-mounted = Free Storage: %{F#6688aa}%mountpoint%%{F-}: %free%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix =
+format-prefix-foreground = ${colors.foreground-alt}
+label = Free memory: %percentage_used:2%%
+
+[module/date]
+type = internal/date
+interval = 1
+date = "%A %d %B %Y "
+date-alt = "%f "
+time = %T
+time-alt = %R
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+label = %date%%time%
+
+
+[module/wlan]
+type = internal/network
+interface = wlp0s20u4
+interval = 3.0
+
+format-connected = <label-connected>
+; format-connected = <ramp-signal><label-connected>
+; format-connected-prefix = " "
+; format-connected = <label-connected>
+;format-connected-underline = ${xrdb:color11:#9f78e1}
+
+# The text
+label-connected = ↑%upspeed% ↓%downspeed%
+#label-connected = %essid% ↑%upspeed% ↓%downspeed%
+label-font = 1
+label-connected-background = ${colors.background}
+label-connected-padding = 0
+
+ramp-signal-font = 2
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+ramp-signal-padding = 1
+ramp-signal-foreground = ${colors.foreground-alt}
+; ramp-signal-background = ${colors.background-alt}
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
