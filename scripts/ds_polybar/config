@@ -70,9 +70,11 @@ tray-background = #aa222222
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
-click-left = ./rofi_windows.sh
-click-middle = ./rofi_run.sh
-click-right = ./rofi_apps.sh
+
+
+click-left = ~/.config/polybar/rofi_windows.sh
+click-middle = ~/.config/polybar/rofi_run.sh
+click-right = ~/.config/polybar/rofi_apps.sh
 scroll-up = xdotool set_desktop --relative 1
 scroll-down = xdotool set_desktop --relative 1
 double-click-left = 
@@ -91,7 +93,7 @@ label =  Artix Linux
 [module/my-text-label]
 type = custom/text
 content =  
-click-left = ./next_ws.sh
+click-left = ~/.config/polybar/next_ws.sh
 
 
 ;[module/xwindow]
@@ -145,38 +147,3 @@ format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 label = %date%%time%
 
-
-[module/wlan]
-type = internal/network
-interface = wlp0s20u4
-interval = 3.0
-
-format-connected = <label-connected>
-; format-connected = <ramp-signal><label-connected>
-; format-connected-prefix = " "
-; format-connected = <label-connected>
-;format-connected-underline = ${xrdb:color11:#9f78e1}
-
-# The text
-label-connected = ↑%upspeed% ↓%downspeed%
-#label-connected = %essid% ↑%upspeed% ↓%downspeed%
-label-font = 1
-label-connected-background = ${colors.background}
-label-connected-padding = 0
-
-ramp-signal-font = 2
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-5 = 
-ramp-signal-padding = 1
-ramp-signal-foreground = ${colors.foreground-alt}
-; ramp-signal-background = ${colors.background-alt}
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
